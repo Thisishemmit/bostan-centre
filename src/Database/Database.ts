@@ -1,6 +1,6 @@
 import SQLite from "tauri-plugin-sqlite-api";
 
-interface StudentI {
+export interface StudentI {
     id: number;
     fName: string;
     lName: string;
@@ -8,31 +8,31 @@ interface StudentI {
     grade: number;
     divisionId: number;
     subjects: SubjectI[];
-    createAt: string;
+    createdAt: string;
     editedAt: string;
 }
 
-interface DivisionI {
+export interface DivisionI {
     id: number;
     name: string;
-    createAt: string;
+    createdAt: string;
     editedAt: string;
 }
 
-interface SubjectI {
+export interface SubjectI {
     id: number;
     name: string;
     divisionId: number;
-    createAt: string;
+    createdAt: string;
     editedAt: string;
 }
 
-interface PaymentI {
+export interface PaymentI {
     id: number;
     studentId: number;
     subjectId: number;
     amount: number;
-    date: Date;
+    date: string;
     editedAt: string;
 }
 
@@ -47,15 +47,19 @@ export default class Database {
         } else {
             let rslt = false;
             try {
-                this.connection = await SQLite.open("bostan.db");
+                this.connection = await SQLite.open("Bostan.db");
                 if (this.debug) console.log("DB: Opened");
                 rslt = true;
             } catch (e) {
-                console.error(`Error Opening DB: ${(e as Error).message}`);
+                console.error(`Error Opening DB: ${(e as Error).message}`, this.connection);
                 rslt = false;
             }
+            let tst = await SQLite.open("bostan.db")
+            console.log(tst);
             return rslt;
         }
+
+
     }
 
     public async close(): Promise<boolean> {
@@ -83,7 +87,7 @@ export default class Database {
                     CREATE TABLE IF NOT EXISTS divisions (
                         id INTEGER PRIMARY KEY AUTOINCREMENT,
                         name TEXT NOT null,
-                        createAt TEXT DEFAULT CURRENT_TIMESTAMP,
+                        createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
                         editedAt TEXT
                     )
                     `)
@@ -109,7 +113,7 @@ export default class Database {
                         id INTEGER PRIMARY KEY AUTOINCREMENT,
                         name TEXT NOT null,
                         divisionId INTEGER NOT NULL,
-                        createAt TEXT DEFAULT CURRENT_TIMESTAMP,
+                        createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
                         editedAt TEXT
                         FOREIGN KEY (divisionId) REFERENCES divisions(id),
                     )
@@ -139,7 +143,7 @@ export default class Database {
                         phone TEXT NOT null,
                         grade INTEGER NOT null,
                         divisionId INTEGER NOT NULL,
-                        createAt TEXT DEFAULT CURRENT_TIMESTAMP,
+                        createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
                         editedAt TEXT,
                         FOREIGN KEY (divisionId) REFERENCES divisions(id)
                     )
@@ -229,11 +233,11 @@ export default class Database {
     }
 }
 
-const db = new Database(true);
+export const db = new Database(true);
 
 // student functions
 
-export async function addStudent(student: Omit<StudentI, "id" | "createAt" | "editedAt">): Promise<boolean> {
+export async function addStudent(student: Omit<StudentI, "id" | "createdAt" | "editedAt" | "subjects">): Promise<boolean> {
     let rslt = false;
     if (db.connection) {
         try {
@@ -290,7 +294,7 @@ export async function getStudent(id: number): Promise<StudentI | null> {
     return rslt;
 }
 
-export async function updateStudent(student: Omit<StudentI, "createAt" | "editedAt">): Promise<boolean> {
+export async function updateStudent(student: StudentI): Promise<boolean> {
     let rslt = false;
     if (db.connection) {
         try {
@@ -320,7 +324,7 @@ export async function deleteStudent(id: number): Promise<boolean> {
 
 // division functions
 
-export async function addDivision(division: Omit<DivisionI, "id" | "createAt" | "editedAt">): Promise<boolean> {
+export async function addDivision(division: Omit<DivisionI, "id" | "createdAt" | "editedAt">): Promise<boolean> {
     let rslt = false;
     if (db.connection) {
         try {
@@ -376,7 +380,7 @@ export async function getDivision(id: number): Promise<DivisionI | null> {
     return rslt;
 }
 
-export async function updateDivision(division: Omit<DivisionI, "createAt" | "editedAt">): Promise<boolean> {
+export async function updateDivision(division: Omit<DivisionI, "createdAt" | "editedAt">): Promise<boolean> {
     let rslt = false;
     if (db.connection) {
         try {
@@ -406,7 +410,7 @@ export async function deleteDivision(id: number): Promise<boolean> {
 
 // subject functions
 
-export async function addSubject(subject: Omit<SubjectI, "id" | "createAt" | "editedAt">): Promise<boolean> {
+export async function addSubject(subject: Omit<SubjectI, "id" | "createdAt" | "editedAt">): Promise<boolean> {
     let rslt = false;
     if (db.connection) {
         try {
@@ -462,11 +466,11 @@ export async function getSubject(id: number): Promise<SubjectI | null> {
     return rslt;
 }
 
-export async function updateSubject(subject: Omit<SubjectI, "createAt" | "editedAt">): Promise<boolean> {
+export async function updateSubject(subject: Omit<SubjectI, "createdAt" | "editedAt">): Promise<boolean> {
     let rslt = false;
     if (db.connection) {
         try {
-            await db.connection?.execute(`UPDATE subjects SET name = ?, divisionId = ?, editedAt = CURRENT_TIMESTAMP WHERE id = ?`, [subject.name, subject.divisionId, subject.id]);
+            await db.connection.execute(`UPDATE subjects SET name = ?, divisionId = ?, editedAt = CURRENT_TIMESTAMP WHERE id = ?`, [subject.name, subject.divisionId, subject.id]);
             rslt = true;
         }
         catch (e) {
@@ -480,7 +484,7 @@ export async function deleteSubject(id: number): Promise<boolean> {
     let rslt = false;
     if (db.connection) {
         try {
-            await db.connection?.execute(`DELETE FROM subjects WHERE id = ?`, [id]);
+            await db.connection.execute(`DELETE FROM subjects WHERE id = ?`, [id]);
             rslt = true;
         }
         catch (e) {
@@ -492,11 +496,11 @@ export async function deleteSubject(id: number): Promise<boolean> {
 
 // payment functions
 
-export async function addPayment(payment: Omit<PaymentI, "id" | "editedAt">): Promise<boolean> {
+export async function addPayment(payment: Omit<PaymentI, "id" | "date" | "editedAt">): Promise<boolean> {
     let rslt = false;
     if (db.connection) {
         try {
-            await db.connection?.execute(`INSERT INTO payments (studentId, subjectId, amount, date) VALUES (?, ?, ?, ?)`, [payment.studentId, payment.subjectId, payment.amount, payment.date]);
+            await db.connection.execute(`INSERT INTO payments (studentId, subjectId, amount) VALUES (?, ?, ?)`, [payment.studentId, payment.subjectId, payment.amount]);
             rslt = true;
         } catch (e) {
             console.error(`Error Adding Payment: ${(e as Error).message}`);
