@@ -26,4 +26,15 @@ dist-ssr
 #build files
 src-tauri/target
 
+# db files
+*.sqlite
+*.sqlite-journal
+*.sqlite-shm
+*.sqlite-wal
+*.db
+src-tauri/*.db
+src-tauri/*.sqlite
+src-tauri/*.sqlite-journal
+src-tauri/*.sqlite-shm
+src-tauri/*.sqlite-wal
 
