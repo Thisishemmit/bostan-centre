@@ -114,14 +114,16 @@ export default class Database {
                         name TEXT NOT null,
                         divisionId INTEGER NOT NULL,
                         createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-                        editedAt TEXT
-                        FOREIGN KEY (divisionId) REFERENCES divisions(id),
-                    )
+                        editedAt TEXT,
+                        FOREIGN KEY (divisionId) REFERENCES divisions(id)
+                    );
                     `)
                 if (this.debug) console.log("DB: subjects Table Created");
                 rslt = true;
             } catch (e) {
                 console.error(`Error Creating subjects Table: ${(e as Error).message}`);
+                console.log(e);
+
                 rslt = false;
             }
         } else {
