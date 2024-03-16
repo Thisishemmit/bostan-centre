@@ -54,8 +54,6 @@ export default class Database {
                 console.error(`Error Opening DB: ${(e as Error).message}`, this.connection);
                 rslt = false;
             }
-            let tst = await SQLite.open("bostan.db")
-            console.log(tst);
             return rslt;
         }
 
