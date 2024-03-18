@@ -15,4 +15,4 @@ git commit -m "$1"
 
 #push to origin
 
-git push -u origin master
+git push -u origin main

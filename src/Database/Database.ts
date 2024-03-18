@@ -36,6 +36,12 @@ export interface PaymentI {
     editedAt: string;
 }
 
+export interface AdminI {
+    id: number;
+    name: string;
+    password: string;
+}
+
 export default class Database {
     public connection: SQLite | null = null;
     constructor(public debug: boolean = false) {
@@ -93,6 +99,30 @@ export default class Database {
                 rslt = true;
             } catch (e) {
                 console.error(`Error Creating divisions Table: ${(e as Error).message}`);
+                rslt = false;
+            }
+        } else {
+            console.error("DB: Connection not opened");
+            rslt = false;
+        }
+        return rslt;
+    }
+
+    public async createAdminTable(): Promise<boolean> {
+        let rslt = false;
+        if (this.connection) {
+            try {
+                await this.connection.execute(`
+                    CREATE TABLE IF NOT EXISTS admins (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        name TEXT NOT null,
+                        password TEXT NOT null
+                    )
+                    `)
+                if (this.debug) console.log("DB: admins Table Created");
+                rslt = true;
+            } catch (e) {
+                console.error(`Error Creating admins Table: ${(e as Error).message}`);
                 rslt = false;
             }
         } else {
@@ -224,6 +254,7 @@ export default class Database {
             await this.createStudentsTable();
             await this.createPaymentsTable();
             await this.createStudentSubjectTable();
+            await this.createAdminTable();
             rslt = true;
         } catch (e) {
             console.error(`Error Creating Tables: ${(e as Error).message}`);
@@ -716,7 +747,7 @@ export async function getStudentSubjectPaymentsTotal(studentId: number, subjectI
     let rslt = 0;
     if (db.connection) {
         try {
-            let res: {total: number}[]= await db.connection.select(`SELECT SUM(amount) as total FROM payments WHERE studentId = ? AND subjectId = ?`, [studentId, subjectId]);
+            let res: { total: number }[] = await db.connection.select(`SELECT SUM(amount) as total FROM payments WHERE studentId = ? AND subjectId = ?`, [studentId, subjectId]);
             if (res) {
                 if (res.length > 0) {
                     rslt = res[0].total;
@@ -737,7 +768,7 @@ export async function getStudentPaymentsTotal(studentId: number): Promise<number
     let rslt = 0;
     if (db.connection) {
         try {
-            let res: {total: number}[]= await db.connection.select(`SELECT SUM(amount) as total FROM payments WHERE studentId = ?`, [studentId]);
+            let res: { total: number }[] = await db.connection.select(`SELECT SUM(amount) as total FROM payments WHERE studentId = ?`, [studentId]);
             if (res) {
                 if (res.length > 0) {
                     rslt = res[0].total;
@@ -842,7 +873,7 @@ export async function getDivisionSubjectPaymentsTotal(divisionId: number, subjec
     let rslt = 0;
     if (db.connection) {
         try {
-            let res: {total: number}[]= await db.connection.select(`SELECT SUM(amount) as total FROM payments WHERE studentId IN (SELECT id FROM students WHERE divisionId = ?) AND subjectId = ?`, [divisionId, subjectId]);
+            let res: { total: number }[] = await db.connection.select(`SELECT SUM(amount) as total FROM payments WHERE studentId IN (SELECT id FROM students WHERE divisionId = ?) AND subjectId = ?`, [divisionId, subjectId]);
             if (res) {
                 if (res.length > 0) {
                     rslt = res[0].total;
@@ -863,7 +894,7 @@ export async function getDivisionPaymentsTotal(divisionId: number): Promise<numb
     let rslt = 0;
     if (db.connection) {
         try {
-            let res: {total: number}[]= await db.connection.select(`SELECT SUM(amount) as total FROM payments WHERE studentId IN (SELECT id FROM students WHERE divisionId = ?)`, [divisionId]);
+            let res: { total: number }[] = await db.connection.select(`SELECT SUM(amount) as total FROM payments WHERE studentId IN (SELECT id FROM students WHERE divisionId = ?)`, [divisionId]);
             if (res) {
                 if (res.length > 0) {
                     rslt = res[0].total;
@@ -880,3 +911,60 @@ export async function getDivisionPaymentsTotal(divisionId: number): Promise<numb
     return rslt;
 }
 
+
+// admin functions
+
+export async function addAdmin(admin: Omit<AdminI, "id">): Promise<boolean> {
+    let rslt = false;
+    if (db.connection) {
+        try {
+            await db.connection?.execute(`INSERT INTO admins (name, password) VALUES (?, ?)`, [admin.name, admin.password]);
+            rslt = true;
+        } catch (e) {
+            console.error(`Error Adding Admin: ${(e as Error).message}`);
+            rslt = false;
+        }
+    }
+    return rslt;
+}
+
+export async function getAdmin(name: string): Promise<AdminI[] | null> {
+    let rslt: AdminI[] | null = null;
+    if (db.connection) {
+        try {
+            let res = await db.connection.select<AdminI[]>(`SELECT * FROM admins WHERE name = ?`, [name]);
+            if (res) {
+                if (res.length > 0) {
+                    rslt = res;
+                    if (db.debug) console.log("Admin: ", rslt);
+                } else {
+                    if (db.debug) console.log("No Admin Found");
+                }
+            }
+        }
+        catch (e) {
+            console.error(`Error Getting Admin: ${(e as Error).message}`);
+        }
+    }
+    return rslt;
+}
+
+export async function updateAdmin(name: string, passwd: string): Promise<boolean> {
+    let rslt = false;
+    if (db.connection) {
+        try {
+            let ad: AdminI[] | null = await getAdmin(name);
+            if (!ad || ad.length === 0) {
+                console.error("admin not found");
+                rslt =  false
+            } else if(ad[0]) {
+                await db.connection.execute("UPDATE admins SET name = ?, password = ? WHERE id = ?", [name, passwd, ad[0].id]);
+                rslt = true
+            }
+        } catch (e) {
+            console.error(`Error Getting Admin: ${(e as Error).message}`);
+            rslt = false
+        }
+    }
+    return rslt
+}

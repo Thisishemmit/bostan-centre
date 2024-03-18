@@ -1,9 +1,10 @@
-
-import React from 'react'
+import Login from "./Comps/Login/Login"
 
 function App() {
   return (
-    <div>App</div>
+    <div>
+      <Login />
+    </div>
   )
 }
 
