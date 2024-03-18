@@ -1,16 +1,27 @@
+import { useState } from "react"
+import { AdminI, getAdmin } from "../../Database/Database";
 
-function Login() {
-    return (
-        <div className="w-screen h-screen flex justify-center items-center bg-[#EBEFF0]" >
-            <div className="h-[70%] w-1/2 px-11 bg-[#FEFEFE] drop-shadow-xl flex-col rounded-3xl flex  items-end justify-center">
-                <h1 className="h-11 text-3xl sora ">الدخول</h1>
-                <h1 className="h-11 text-3xl sora ">hello</h1>
-                <div className="w-full h-1/2 my-11 rounded-2xl bg-[#EBEFF0]">
+const Login = ({onLoginStateChange}) => {
+  const [username, setUsername] = useState('');
+  const [passwd, setPasswd] = useState('');
+  const [isNewUser, setIsNewUser] = useState(true);
+  const [errorMsg, setErrorMsg] = useState('')
 
-                </div>
-            </div>
-        </div>
-    )
+  useEffect(() => {
+    const storedUserName = localStorage.getItem('username');
+    if (storedUserName) {
+      setUsername(storedUserName)
+      setIsNewUser(false)
+      onLoginStateChange(true)
+    }
+  }, [onLoginStateChange])
+
+  const handleLogin = async () => {
+    try {
+      const admin: AdminI = await getAdmin(username);
+    }
+  }
+  
 }
 
 export default Login

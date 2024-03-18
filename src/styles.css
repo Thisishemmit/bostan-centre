@@ -4,9 +4,10 @@
 
 @font-face {
   font-family: Sora;
-  src: url('./assets/Amita/Amita-Regular.ttf');
+  src: url("./assets/Hlvtca.ttf");
 }
 
-.sora {
-  font-family: sora;
+* {
+  font-family: Sora;
 }
+
