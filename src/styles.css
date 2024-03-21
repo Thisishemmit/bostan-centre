@@ -11,3 +11,23 @@
   font-family: Sora;
 }
 
+
+.color-black {
+  color: #010101;
+}
+.color-light {
+  color: #dddfd2
+}
+.bag-black {
+  background-color: #010101;
+}
+.bag-light {
+  background-color: #dddfd2;
+}
+
+.bag-accent {
+  background-color: #545952;
+}
+.color-accent {
+  color: #545952;
+}
