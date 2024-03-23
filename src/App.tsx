@@ -34,11 +34,11 @@ function App() {
                     <Login onLoginStateChange={handleLoginStatus} />
                 </div>
             ) : (
-                <div className="w-full h-full bag-light rounded-[56px] overflow-hidden">
-                    <div className="w-full h-16 bag-accent flex justify-between items-center p-2">
+                <div className="w-full h-full  rounded-[56px] overflow-hidden flex flex-col justify-center items-center">
+                    <div className="w-[88%] h-24 bag-accent flex justify-between items-center">
                         <Navbar onNavbarPageChange={handlePageChoosen} />
                     </div>
-                    <div className="w-full h-full p-2">
+                    <div className="w-full h-full p-2 rounded-t-[30px] bag-light">
                         {pageLoaded === "Dashboard" && <Dashboard />}
                         {pageLoaded === "Settings" && <Settings onLogout={handleLogout} />}
                         {pageLoaded === "Students" && <Students />}
