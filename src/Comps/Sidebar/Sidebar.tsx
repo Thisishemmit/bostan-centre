@@ -34,28 +34,28 @@ const Sidebar = ({ onbarPageChange, onMaxChange }: {
 
     return (
         <div className="w-full h-full py-8  items-center flex flex-col justify-between ">
-            <div className="relative flex justify-between items-center flex-col gap-2">
-                <div className="tooltipper-hide tooltipper bg-green-300 rounded-3xl w-7 h-7 place-items-center">
-                    <HiMinus className={iconsStyle + " p-1 h-full w-full color-black"} size={24} onClick={
-                        () => appWindow.hide()
-                    } />
+            <div className="relative flex justify-between items-center flex-col gap-4">
+                <div className="tooltipper-hide tooltipper bg-green-300 rounded-3xl w-5 h-5 place-items-center">
+                    <div className={iconsStyle + " p-1 h-full w-full color-black"} onClick={
+                        () => appWindow.minimize()
+                    } > </div>
 
-                    <div className="absolute h-full tooltip-cover w-5 bag-dark z-10 left-9 top-0"></div>
+                    <div className="absolute h-full tooltip-cover w-5 bag-dark z-10 left-7 top-0"></div>
                     <div className="tooltip-hide tooltip">{windowActions[2]}</div>
                 </div>
-                <div className="tooltipper-max-min tooltipper bg-red-50 rounded-3xl w-7 h-7 place-items-center">
+                <div className="tooltipper-max-min tooltipper bg-red-50 rounded-3xl w-5 h-5 place-items-center">
 
                     {isMaxed ? <>
-                        <HiArrowsPointingIn className={iconsStyle + " p-1 w-full h-full color-black"} size={24} onClick={
+                        <div className={iconsStyle + " p-1 w-full h-full color-black"}  onClick={
                             () => handleMaximize(false)
-                        } />
-                        <div className="absolute h-full tooltip-cover w-5 bag-dark z-10 left-9 top-0"></div>
+                        } ></div>
+                        <div className="absolute h-full tooltip-cover w-5 bag-dark z-10 left-7 top-0"></div>
                         <div className="tooltip-max-min tooltip">{windowActions[0]}</div>
                     </> : <>
-                        <HiArrowsPointingOut className={iconsStyle + " p-1 h-full w-full color-black"} size={24} onClick={
+                        <div className={iconsStyle + " p-1 h-full w-full color-black"} onClick={
                             () => handleMaximize(true)
-                        } />
-                        <div className="absolute h-full tooltip-cover w-5 bag-dark z-10 left-9 top-0"></div>
+                        }></div>
+                        <div className="absolute h-full tooltip-cover w-5 bag-dark z-10 left-7 top-0"></div>
                         <div className="tooltip-max-min tooltip">{windowActions[1]}</div>
                     </>}
                 </div>

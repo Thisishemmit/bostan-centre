@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Login from "./Comps/Login/Login"
 import Dashboard from "./Comps/Dashboard/Dashboard"
 import Settings from "./Comps/Settings/Settings"
@@ -7,6 +7,7 @@ import Divisions from "./Comps/Divisions/Divisions"
 import Payments from "./Comps/Payments/Payments"
 import Search from "./Comps/Search/Search"
 import Sidebar from "./Comps/Sidebar/Sidebar"
+import { appWindow } from "@tauri-apps/api/window"
 
 function App() {
     const [isLogged, setIsLogged] = useState(false)
@@ -14,7 +15,6 @@ function App() {
     const handleLoginStatus = (status: boolean) => {
         setIsLogged(status)
     }
-
     const handleLogout = () => {
         localStorage.removeItem("username")
         setIsLogged(false)
@@ -30,6 +30,15 @@ function App() {
         setIsMaximized(status)
     }
 
+    const handleF11 = () => {
+        document.addEventListener("keydown", (e) => {
+            if (e.code === "F11"){
+
+            }
+        })
+    }
+
+    handleF11()
 
     return (
         <div className={`w-screen h-screen bag-dark p-4 pl-0 overflow-hidden ${!isMaximized ? "rounded-[46px]" : "rounded-[0px]"}`}>

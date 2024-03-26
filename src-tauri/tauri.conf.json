@@ -35,7 +35,7 @@
     },
     "bundle": {
       "active": true,
-      "targets": "all",
+      "targets": ["deb", "nsis"],
       "identifier": "com.bostan.erp",
       "icon": [
         "icons/32x32.png",
