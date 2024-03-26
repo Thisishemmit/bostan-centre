@@ -18,21 +18,122 @@
 
 
 .color-black {
-  color: #010101;
+  color: #030303;
 }
 .color-light {
-  color: #dddfd2
+  color: #FEFEFE;
+}
+.bag-accent-light {
+    background-color: #F1F5F6;
 }
 .bag-black {
-  background-color: #010101;
+  background-color: #030303;
 }
 .bag-light {
-  background-color: #dddfd2;
+  background-color: #FEFEFE;
+}
+.bag-dark {
+    background-color: #191919;
 }
 
-.bag-accent {
-  background-color: #545952;
+.color-accent-light {
+    color: #F1F5F6;
 }
 .color-accent {
-  color: #545952;
+  color: #A4A4A4;
 }
+
+.tooltip {
+    @apply absolute top-1/2 -translate-y-1/2 left-7  opacity-0 bag-dark color-accent-light text-xs rounded-md p-2 transition-[left_opacity] duration-200 divide-lime-200;
+}
+.tooltipper-dash:hover .tooltip-dash {
+    @apply  opacity-100 left-16
+}
+
+.tooltipper-dash .tooltip:hover {
+
+    @apply absolute top-1/2 -translate-y-1/2 left-7  opacity-0 bag-dark color-accent-light text-sm rounded-md p-2 transition-[left_opacity] duration-200 divide-lime-200;
+}
+
+.tooltipper-dash .tooltip-cover:hover + .tooltip-dash {
+    @apply absolute top-1/2 -translate-y-1/2 left-7  opacity-0 bag-dark color-accent-light text-sm rounded-md p-2 transition-[left_opacity] duration-200 divide-lime-200;
+}
+.tooltipper {
+    @apply relative
+}
+
+.tooltipper-stud:hover .tooltip-stud {
+    @apply  opacity-100 left-16
+}
+
+
+.tooltip-stud .tooltip-cover:hover + .tooltip-stud {
+    @apply absolute top-1/2 -translate-y-1/2 left-7  opacity-0 bag-dark color-accent-light text-sm rounded-md p-2 transition-[left_opacity] duration-200 divide-lime-200;
+}
+
+.tooltipper-divi:hover .tooltip-divi {
+    @apply  opacity-100 left-16
+}
+
+.tooltip-divi .tooltip-cover:hover + .tooltip-divi {
+    @apply absolute top-1/2 -translate-y-1/2 left-7  opacity-0 bag-dark color-accent-light text-sm rounded-md p-2 transition-[left_opacity] duration-200 divide-lime-200;
+}
+
+.tooltipper-paym:hover .tooltip-paym {
+    @apply  opacity-100 left-16
+}
+
+.tooltip-paym .tooltip-cover:hover + .tooltip-paym {
+    @apply absolute top-1/2 -translate-y-1/2 left-7  opacity-0 bag-dark color-accent-light text-sm rounded-md p-2 transition-[left_opacity] duration-200 divide-lime-200;
+}
+
+.tooltipper-sear:hover .tooltip-sear {
+    @apply  opacity-100 left-16
+}
+
+.tooltip-sear .tooltip-cover:hover + .tooltip-sear {
+    @apply absolute top-1/2 -translate-y-1/2 left-7  opacity-0 bag-dark color-accent-light text-sm rounded-md p-2 transition-[left_opacity] duration-200 divide-lime-200;
+}
+
+.tooltipper-sett:hover .tooltip-sett {
+    @apply  opacity-100 left-16
+}
+
+.tooltip-sett .tooltip-cover:hover + .tooltip-sett {
+    @apply absolute top-1/2 -translate-y-1/2 left-7  opacity-0 bag-dark color-accent-light text-sm rounded-md p-2 transition-[left_opacity] duration-200 divide-lime-200;
+}
+
+.tooltipper-exit:hover .tooltip-exit {
+    @apply  opacity-100 left-16
+}
+
+.tooltip-exit .tooltip-cover:hover + .tooltip-exit {
+    @apply absolute top-1/2 -translate-y-1/2 left-7  opacity-0 bag-dark color-accent-light text-sm rounded-md p-2 transition-[left_opacity] duration-200 divide-lime-200;
+}
+
+.tooltipper-max-min:hover .tooltip-max-min {
+    @apply  opacity-100 left-16
+}
+
+.tooltipper-max-min .tooltip-cover:hover + .tooltip-max-min {
+    @apply absolute top-1/2 -translate-y-1/2 left-7  opacity-0 bag-dark color-accent-light text-sm rounded-md p-2 transition-[left_opacity] duration-200 divide-lime-200;
+}
+
+.tooltipper-max-min .tooltip:hover {
+
+    @apply absolute top-1/2 -translate-y-1/2 left-7  opacity-0 bag-dark color-accent-light text-sm rounded-md p-2 transition-[left_opacity] duration-200 divide-lime-200;
+}
+
+.tooltipper-hide:hover .tooltip-hide {
+    @apply  opacity-100 left-16
+}
+
+.tooltipper-hide .tooltip-cover:hover + .tooltip-hide {
+    @apply absolute top-1/2 -translate-y-1/2 left-7  opacity-0 bag-dark color-accent-light text-sm rounded-md p-2 transition-[left_opacity] duration-200 divide-lime-200;
+}
+
+.tooltipper-hide .tooltip:hover {
+
+    @apply absolute top-1/2 -translate-y-1/2 left-7  opacity-0 bag-dark color-accent-light text-sm rounded-md p-2 transition-[left_opacity] duration-200 divide-lime-200;
+}
+
