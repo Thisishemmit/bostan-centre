@@ -1,4 +1,4 @@
-import SQLite from "tauri-plugin-sqlite-api";
+import SQLite from "tauri-plugin-sqlite-api"
 
 export interface StudentI {
     id: number;

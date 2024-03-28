@@ -2,6 +2,79 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply  text-foreground;
+  }
+}
+
 @font-face {
     font-family: 'Montserrat';
     src: url('./assets/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');
@@ -12,10 +85,102 @@
 }
 
 * {
+  font-family: Sora, sans-serif;
+  font-weight: 400;
+  user-select: none;
+  cursor: default;
+
+}
+
+.sora-thin {
+  font-family: Sora, sans-serif;
+  font-weight: 100;
+}
+
+.sora-extralight {
+  font-family: Sora, sans-serif;
+  font-weight: 200;
+}
+
+.sora-light {
+  font-family: Sora, sans-serif;
+  font-weight: 300;
+}
+
+.sora-regular {
+  font-family: Sora, sans-serif;
+  font-weight: 400;
+}
+
+.sora-medium {
+  font-family: Sora, sans-serif;
+  font-weight: 500;
+}
+
+.sora-semibold {
+  font-family: Sora, sans-serif;
+  font-weight: 600;
+}
+
+.sora-bold {
+  font-family: Sora, sans-serif;
+  font-weight: 700;
+}
+
+.sora-extrabold {
+  font-family: Sora, sans-serif;
+  font-weight: 800;
+}
+
+.sora-black {
+  font-family: Sora, sans-serif;
+  font-weight: 900;
+}
+
+.montserrat-thin {
+  font-family: Montserrat, sans-serif;
+  font-weight: 100;
+}
+
+.montserrat-extralight {
+  font-family: Montserrat, sans-serif;
+  font-weight: 200;
+}
+
+.montserrat-light {
+  font-family: Montserrat, sans-serif;
+  font-weight: 300;
+}
+
+.montserrat-regular {
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+}
+
+.montserrat-medium {
   font-family: Montserrat, sans-serif;
   font-weight: 500;
 }
 
+.montserrat-semibold {
+  font-family: Montserrat, sans-serif;
+  font-weight: 600;
+}
+
+.montserrat-bold {
+  font-family: Montserrat, sans-serif;
+  font-weight: 700;
+}
+
+.montserrat-extrabold {
+  font-family: Montserrat, sans-serif;
+  font-weight: 800;
+}
+
+.momontserrat-black ntserrat-black {
+  font-family: Montserrat, sans-serif;
+  font-weight: 900;
+}
 
 .color-black {
   color: #030303;
@@ -137,3 +302,6 @@
     @apply absolute top-1/2 -translate-y-1/2 left-7  opacity-0 bag-dark color-accent-light text-sm rounded-md p-2 transition-[left_opacity] duration-200 divide-lime-200;
 }
 
+.sidebar-b path {
+    @apply cursor-pointer;
+}

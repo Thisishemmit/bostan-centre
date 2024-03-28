@@ -1,14 +1,14 @@
 import { appWindow } from "@tauri-apps/api/window"
 import { useState } from "react"
-import { HiLogout, HiMinus } from "react-icons/hi"
-import { HiArrowsPointingIn, HiArrowsPointingOut, HiMagnifyingGlass, HiOutlineBanknotes, HiOutlineCog6Tooth, HiOutlineSquares2X2, HiOutlineUserGroup } from "react-icons/hi2"
+import { HiLogout,  } from "react-icons/hi"
+import { HiMagnifyingGlass, HiOutlineBanknotes, HiOutlineCog6Tooth, HiOutlineSquares2X2, HiOutlineUserGroup } from "react-icons/hi2"
 import { PiStudentLight } from "react-icons/pi"
 const Sidebar = ({ onbarPageChange, onMaxChange }: {
     onbarPageChange: (state: string) => void;
     onMaxChange: (state: boolean) => void;
 }) => {
     const [activePage, setActivePage] = useState("Dashboard")
-    const iconsStyle = " w-9 h-9   cursor-pointer transition-[padding_color] ease-in-out duration-150"
+    const iconsStyle = " w-9 h-9 sidebar-b  cursor-pointer transition-[padding_color] ease-in-out duration-150"
     const handleActivePage = async (page: string) => {
         if (page === "Exit") {
             await appWindow.close()
@@ -30,10 +30,10 @@ const Sidebar = ({ onbarPageChange, onMaxChange }: {
     //minimize -maximize
     const windowActions = ["démaximiser", "maximiser", "minimizer"]
     const pageNames = ["Accueil", "Étudiants", "Groupes", "Paiements", "Recherche", "Paramètres", "Sortie"]
-    const iconDivStyle = " tooltipper flex my-2 flex-col relative items-center justify-center w-full"
+    const iconDivStyle = " tooltipper cursor-pointer flex my-2 flex-col relative items-center justify-center w-full"
 
     return (
-        <div className="w-full h-full py-8  items-center flex flex-col justify-between ">
+        <div className=" sidebar w-full h-full py-8  items-center flex flex-col justify-between ">
             <div className="relative flex justify-between items-center flex-col gap-4">
                 <div className="tooltipper-hide tooltipper bg-green-300 rounded-3xl w-5 h-5 place-items-center">
                     <div className={iconsStyle + " p-1 h-full w-full color-black"} onClick={

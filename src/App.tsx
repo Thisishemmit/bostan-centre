@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import Login from "./Comps/Login/Login"
 import Dashboard from "./Comps/Dashboard/Dashboard"
 import Settings from "./Comps/Settings/Settings"
@@ -7,7 +7,6 @@ import Divisions from "./Comps/Divisions/Divisions"
 import Payments from "./Comps/Payments/Payments"
 import Search from "./Comps/Search/Search"
 import Sidebar from "./Comps/Sidebar/Sidebar"
-import { appWindow } from "@tauri-apps/api/window"
 
 function App() {
     const [isLogged, setIsLogged] = useState(false)
@@ -15,11 +14,6 @@ function App() {
     const handleLoginStatus = (status: boolean) => {
         setIsLogged(status)
     }
-    const handleLogout = () => {
-        localStorage.removeItem("username")
-        setIsLogged(false)
-    }
-
     const [pageLoaded, setPageLoaded] = useState("Dashboard")
     const [isMaximized, setIsMaximized] = useState(false)
     const handlePageChoosen = (page: string) => {
@@ -55,7 +49,7 @@ function App() {
                     </div>
                     <div className="w-full h-full p-2 rounded-[30px] bag-light">
                         {pageLoaded === "Dashboard" && <Dashboard />}
-                        {pageLoaded === "Settings" && <Settings onLogout={handleLogout} />}
+                        {pageLoaded === "Settings" && <Settings />}
                         {pageLoaded === "Students" && <Students />}
                         {pageLoaded === "Divisions" && <Divisions />}
                         {pageLoaded === "Payments" && <Payments />}
