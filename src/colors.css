@@ -1,0 +1,26 @@
+
+.color-black {
+  color: #030303;
+}
+.color-light {
+  color: #FEFEFE;
+}
+.bag-accent-light {
+    background-color: #F1F5F6;
+}
+.bag-black {
+  background-color: #030303;
+}
+.bag-light {
+  background-color: #FEFEFE;
+}
+.bag-dark {
+    background-color: #191919;
+}
+
+.color-accent-light {
+    color: #F1F5F6;
+}
+.color-accent {
+  color: #A4A4A4;
+}

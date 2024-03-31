@@ -33,7 +33,7 @@ const Sidebar = ({ onbarPageChange, onMaxChange }: {
     const iconDivStyle = " tooltipper cursor-pointer flex my-2 flex-col relative items-center justify-center w-full"
 
     return (
-        <div className=" sidebar w-full h-full py-8  items-center flex flex-col justify-between ">
+        <div className="metro-medium sidebar w-full h-full py-8  items-center flex flex-col justify-between ">
             <div className="relative flex justify-between items-center flex-col gap-4">
                 <div className="tooltipper-hide tooltipper bg-green-300 rounded-3xl w-5 h-5 place-items-center">
                     <div className={iconsStyle + " p-1 h-full w-full color-black"} onClick={

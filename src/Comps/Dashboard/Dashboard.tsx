@@ -1,37 +1,59 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Separator } from "@radix-ui/react-separator"
-import { HiChevronRight } from "react-icons/hi"
+function BoxA() {
+    return (
+        <div className="h-full p-3 w-[33%]">
+            <div className="h-full w-full rounded-[30px] bg-sky-100">
 
+            </div>
+        </div>
+    )
+}
+
+function BoxB() {
+    return (
+        <div className="h-full p-3 w-[23%]">
+            <div className="h-full w-full rounded-[30px] bg-lavender-200">
+            </div>
+        </div>
+    )
+}
+
+function BoxC() {
+    return (
+        <div className="h-full p-3 w-[23%]">
+            <div className="h-full w-full  rounded-[30px] bg-honeydew-200">
+            </div>
+        </div>
+    )
+}
+
+function BoxD() {
+    return (
+        <div className="h-full p-3 w-[23%]">
+            <div className="h-full w-full  rounded-[30px] bg-beige-200">
+            </div>
+        </div>
+    )
+}
 function Dashboard() {
     return (
-        <div className='w-full h-full p-10 rounded-t-2xl'>
-            <h1 className='text-3xl sora-bold'>Accueil</h1>
-            <CardDescription className="-mt-1">Informations générales</CardDescription>
-            <div className="mt-10">
-                <div>
-                    <Card>
-                        <CardHeader className="flex flex-row justify-between">
-                            <div>
-                               <CardTitle className="text-2xl">Étudiants</CardTitle>
-                               <CardDescription>Nombres et statistiques</CardDescription>
-                            </div>
-                            <div>
-                                <Button className="w-10 h-10 p-0"><HiChevronRight size={30}/></Button>
-                            </div>
-                        </CardHeader>
-                        <CardContent>
-                            <Separator orientation="horizontal" className="my-4"/>
-                            <h1 className="text-2xl">Nombre total d'étudiants</h1>
-                            <h1 className="text-2xl">Nombre total d'étudiants</h1>
-                            <h1 className="text-2xl">Nombre total d'étudiants</h1>
-                        </CardContent>
-                    </Card>
-                </div>
-                <div>
-                </div>
+        <div className='w-full h-full p-3 flex flex-col px-6 gap-9'>
+            <div className="flex flex-col justify-start px-3 items-start">
+                <h1 className='text-7xl metro-bold'>Accueil</h1>
             </div>
-            <div></div>
+            <div className="flex h-56 justify-between items-center flex-row w-full">
+                <BoxA />
+                <BoxB />
+                <BoxC />
+                <BoxD />
+            </div>
+
+            <div className="flex flex-row justify-between px-3 items-center w-full h-full">
+                <div className="flex justify-between w-3/5 h-full bg-red-100 rounded-[30px]">
+                </div>
+                <div className="flex justify-between w-2/6 h-full bg-cyan-100 rounded-[30px]">
+                </div>
+
+            </div>
         </div>
     )
 }

@@ -75,138 +75,32 @@
   }
 }
 
-@font-face {
-    font-family: 'Montserrat';
-    src: url('./assets/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');
-}
-@font-face {
-  font-family: Sora;
-  src: url("./assets/Sora/Sora-VariableFont_wght.ttf") format("truetype");
-}
 
-* {
-  font-family: Sora, sans-serif;
-  font-weight: 400;
-  user-select: none;
-  cursor: default;
-
+.bag-accent-light {
+    background-color: #F1F5F6;
 }
-
-.sora-thin {
-  font-family: Sora, sans-serif;
-  font-weight: 100;
+.bag-black {
+    background-color: #030303;
 }
-
-.sora-extralight {
-  font-family: Sora, sans-serif;
-  font-weight: 200;
+.bag-light {
+    background-color: #FEFEFE;
 }
-
-.sora-light {
-  font-family: Sora, sans-serif;
-  font-weight: 300;
+.bag-dark {
+    background-color: #191919;
 }
-
-.sora-regular {
-  font-family: Sora, sans-serif;
-  font-weight: 400;
-}
-
-.sora-medium {
-  font-family: Sora, sans-serif;
-  font-weight: 500;
-}
-
-.sora-semibold {
-  font-family: Sora, sans-serif;
-  font-weight: 600;
-}
-
-.sora-bold {
-  font-family: Sora, sans-serif;
-  font-weight: 700;
-}
-
-.sora-extrabold {
-  font-family: Sora, sans-serif;
-  font-weight: 800;
-}
-
-.sora-black {
-  font-family: Sora, sans-serif;
-  font-weight: 900;
-}
-
-.montserrat-thin {
-  font-family: Montserrat, sans-serif;
-  font-weight: 100;
-}
-
-.montserrat-extralight {
-  font-family: Montserrat, sans-serif;
-  font-weight: 200;
-}
-
-.montserrat-light {
-  font-family: Montserrat, sans-serif;
-  font-weight: 300;
-}
-
-.montserrat-regular {
-  font-family: Montserrat, sans-serif;
-  font-weight: 400;
-}
-
-.montserrat-medium {
-  font-family: Montserrat, sans-serif;
-  font-weight: 500;
-}
-
-.montserrat-semibold {
-  font-family: Montserrat, sans-serif;
-  font-weight: 600;
-}
-
-.montserrat-bold {
-  font-family: Montserrat, sans-serif;
-  font-weight: 700;
-}
-
-.montserrat-extrabold {
-  font-family: Montserrat, sans-serif;
-  font-weight: 800;
-}
-
-.momontserrat-black ntserrat-black {
-  font-family: Montserrat, sans-serif;
-  font-weight: 900;
-}
-
 .color-black {
   color: #030303;
 }
 .color-light {
   color: #FEFEFE;
 }
-.bag-accent-light {
-    background-color: #F1F5F6;
-}
-.bag-black {
-  background-color: #030303;
-}
-.bag-light {
-  background-color: #FEFEFE;
-}
-.bag-dark {
-    background-color: #191919;
-}
-
 .color-accent-light {
     color: #F1F5F6;
 }
 .color-accent {
   color: #A4A4A4;
 }
+
 
 .tooltip {
     @apply absolute top-1/2 -translate-y-1/2 left-7  opacity-0 bag-dark color-accent-light text-xs rounded-md p-2 transition-[left_opacity] duration-200 divide-lime-200;

@@ -23,8 +23,8 @@
     "windows": [
       {
         "title": "bostan-centre",
-        "minWidth": 800,
-        "minHeight": 600,
+        "minWidth": 1030,
+        "minHeight": 700,
         "transparent": true,
         "resizable": true,
         "decorations": false

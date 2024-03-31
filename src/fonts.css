@@ -1,0 +1,113 @@
+
+
+@font-face {
+    font-family: Sora;
+    src: url("./assets/pippins/Poppins-VariableFont_wght.otf") format("opentype");
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./assets/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: Soraaa;
+  src: url("./assets/Sora/Sora-VariableFont_wght.ttf") format("truetype");
+}
+
+* {
+  font-family: Sora, sans-serif;
+  font-weight: 400;
+  user-select: none;
+  cursor: default;
+
+}
+
+.sora-thin {
+  font-family: Sora, sans-serif;
+  font-weight: 100;
+}
+
+.sora-extralight {
+  font-family: Sora, sans-serif;
+  font-weight: 200;
+}
+
+.sora-light {
+  font-family: Sora, sans-serif;
+  font-weight: 300;
+}
+
+.sora-regular {
+  font-family: Sora, sans-serif;
+  font-weight: 400;
+}
+
+.sora-medium {
+  font-family: Sora, sans-serif;
+  font-weight: 500;
+}
+
+.sora-semibold {
+  font-family: Sora, sans-serif;
+  font-weight: 600;
+}
+
+.sora-bold {
+  font-family: Sora, sans-serif;
+  font-weight: 700;
+}
+
+.sora-extrabold {
+  font-family: Sora, sans-serif;
+  font-weight: 800;
+}
+
+.sora-black {
+  font-family: Sora, sans-serif;
+  font-weight: 900;
+}
+
+.montserrat-thin {
+  font-family: Montserrat, sans-serif;
+  font-weight: 100;
+}
+
+.montserrat-extralight {
+  font-family: Montserrat, sans-serif;
+  font-weight: 200;
+}
+
+.montserrat-light {
+  font-family: Montserrat, sans-serif;
+  font-weight: 300;
+}
+
+.montserrat-regular {
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+}
+
+.montserrat-medium {
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+}
+
+.montserrat-semibold {
+  font-family: Montserrat, sans-serif;
+  font-weight: 600;
+}
+
+.montserrat-bold {
+  font-family: Montserrat, sans-serif;
+  font-weight: 700;
+}
+
+.montserrat-extrabold {
+  font-family: Montserrat, sans-serif;
+  font-weight: 800;
+}
+
+.momontserrat-black ntserrat-black {
+  font-family: Montserrat, sans-serif;
+  font-weight: 900;
+}
+
