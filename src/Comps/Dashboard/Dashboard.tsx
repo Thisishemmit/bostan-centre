@@ -2,12 +2,8 @@ import {
     Activity,
     ArrowUpRight,
     BookCopy,
-    CircleUser,
-    CreditCard,
     DollarSign,
-    Menu,
-    Package2,
-    Search,
+    EyeIcon,
     Users,
 } from "lucide-react"
 
@@ -16,7 +12,6 @@ import {
     AvatarFallback,
     AvatarImage,
 } from "@/components/ui/avatar"
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import {
     Card,
@@ -26,16 +21,6 @@ import {
     CardTitle,
 } from "@/components/ui/card"
 import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { Input } from "@/components/ui/input"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import {
     Table,
     TableBody,
     TableCell,
@@ -44,205 +29,273 @@ import {
     TableRow,
 } from "@/components/ui/table"
 
+const BoxA = () => (
+    <Card>
+        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-lg font-light">
+                Paiements Total
+            </CardTitle>
+            <DollarSign className="h-4 w-4 text-muted-foreground" />
+        </CardHeader>
+        <CardContent>
+            <div className="text-5xl thunder-bold">5,231.89 DH</div>
+            <p className="text-xs text-muted-foreground">
+                +20% par rapport au mois dernier
+            </p>
+        </CardContent>
+    </Card>
+)
+const BoxB = () => (
+    <Card>
+        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-lg font-light">
+                Ètudiants
+            </CardTitle>
+            <Users className="h-4 w-4 text-muted-foreground" />
+        </CardHeader>
+        <CardContent>
+            <div className="text-5xl thunder-bold">236</div>
+            <p className="text-xs text-muted-foreground">
+                +180.1% par rapport au mois dernier
+            </p>
+        </CardContent>
+    </Card>
+)
+
+const BoxC = () => (
+    <Card>
+        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-lg font-light">Cours</CardTitle>
+            <BookCopy className="h-4 w-4 text-muted-foreground" />
+        </CardHeader>
+        <CardContent>
+            <div className="text-5xl thunder-bold">12</div>
+            <p className="text-xs text-muted-foreground">
+                +19% par rapport au mois dernier
+            </p>
+        </CardContent>
+    </Card>
+)
+
+const BoxD = () => (
+    <Card className="shadow-red-200 shadow-md">
+        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-lg font-light">Non payé</CardTitle>
+            <Activity className="h-4 w-4 text-muted-foreground" />
+        </CardHeader>
+        <CardContent>
+            <div className="text-5xl thunder-bold">38</div>
+            <p className="text-xs text-muted-foreground">
+                16% du total des étudiants
+            </p>
+        </CardContent>
+    </Card>
+)
+
+const BoxTable = () => (
+    <Card className="xl:col-span-2">
+        <CardHeader className="flex flex-row items-center">
+            <div className="grid gap-2">
+                <CardTitle className=" font-medium">Liste des étudiants</CardTitle>
+                <CardDescription className="font-medium">
+                    Étudiants récemment inscrits
+                </CardDescription>
+            </div>
+            <Button asChild size="sm" className="ml-auto gap-1">
+                <div>
+                    <p className="text-base">Voir tout</p>
+                    <ArrowUpRight className="h-4 w-4" />
+                </div>
+            </Button>
+        </CardHeader>
+        <CardContent>
+            <Table className="py-2">
+                <TableHeader>
+                    <TableRow>
+                        <TableHead>Étudiant</TableHead>
+                        <TableHead>Division</TableHead>
+                        <TableHead>Résumé</TableHead>
+                        <TableHead>Actions</TableHead>
+                    </TableRow>
+                </TableHeader>
+                <TableBody>
+                    <TableRow>
+                        <TableCell>
+                            <div className="flex items-center gap-2">
+                                <Avatar className="h-8 w-8">
+                                    <AvatarImage alt="Avatar" src="/avatars/01.png" />
+                                    <AvatarFallback>MK</AvatarFallback>
+                                </Avatar>
+                                <div className="font-medium">Mohamed Karroumi</div>
+                            </div>
+                        </TableCell>
+                        <TableCell>Primaire</TableCell>
+                        <TableCell>
+                            <div className="flex items-center gap-4">
+                                <div className="flex items-center gap-2">
+                                    <div className="w-2 h-4 rounded-lg bg-[#59ff80] cursor-pointer" />
+                                    <div className="w-2 h-4 rounded-lg bg-[#59ff80] cursor-pointer" />
+                                    <div className="w-2 h-4 rounded-lg bg-[#59ff80] cursor-pointer" />
+                                    <div className="w-2 h-4 rounded-lg bg-[#ff595e] cursor-pointer" />
+                                    <div className="w-2 h-4 rounded-lg bg-[#b0b0b0] cursor-pointer" />
+                                </div>
+                                <Button variant="secondary" className="size-8 p-0 rounded-full flex items-center justify-center">
+                                    <ArrowUpRight className="h-4 w-4" />
+                                </Button>
+                            </div>
+                        </TableCell>
+                        <TableCell className="text-start">
+                            <Button size="icon" variant="outline">
+                                <EyeIcon className="h-4 w-4" />
+                                <span className="sr-only">Voir l'étudiant</span>
+                            </Button>
+                        </TableCell>
+                    </TableRow><TableRow>
+                        <TableCell>
+                            <div className="flex items-center gap-2">
+                                <Avatar className="h-8 w-8">
+                                    <AvatarImage alt="Avatar" src="/avatars/01.png" />
+                                    <AvatarFallback>MK</AvatarFallback>
+                                </Avatar>
+                                <div className="font-medium">Mohamed Karroumi</div>
+                            </div>
+                        </TableCell>
+                        <TableCell>Primaire</TableCell>
+                        <TableCell>
+                            <div className="flex items-center gap-4">
+                                <div className="flex items-center gap-2">
+                                    <div className="w-2 h-4 rounded-lg bg-[#59ff80] cursor-pointer" />
+                                    <div className="w-2 h-4 rounded-lg bg-[#59ff80] cursor-pointer" />
+                                    <div className="w-2 h-4 rounded-lg bg-[#59ff80] cursor-pointer" />
+                                    <div className="w-2 h-4 rounded-lg bg-[#ff595e] cursor-pointer" />
+                                    <div className="w-2 h-4 rounded-lg bg-[#b0b0b0] cursor-pointer" />
+                                </div>
+                                <Button variant="secondary" className="size-8 p-0 rounded-full flex items-center justify-center">
+                                    <ArrowUpRight className="h-4 w-4" />
+                                </Button>
+                            </div>
+                        </TableCell>
+                        <TableCell className="text-start">
+                            <Button size="icon" variant="outline">
+                                <EyeIcon className="h-4 w-4" />
+                                <span className="sr-only">Voir l'étudiant</span>
+                            </Button>
+                        </TableCell>
+                    </TableRow><TableRow>
+                        <TableCell>
+                            <div className="flex items-center gap-2">
+                                <Avatar className="h-8 w-8">
+                                    <AvatarImage alt="Avatar" src="/avatars/01.png" />
+                                    <AvatarFallback>MK</AvatarFallback>
+                                </Avatar>
+                                <div className="font-medium">Mohamed Karroumi</div>
+                            </div>
+                        </TableCell>
+                        <TableCell>Primaire</TableCell>
+                        <TableCell>
+                            <div className="flex items-center gap-4">
+                                <div className="flex items-center gap-2">
+                                    <div className="w-2 h-4 rounded-lg bg-[#59ff80] cursor-pointer" />
+                                    <div className="w-2 h-4 rounded-lg bg-[#59ff80] cursor-pointer" />
+                                    <div className="w-2 h-4 rounded-lg bg-[#59ff80] cursor-pointer" />
+                                    <div className="w-2 h-4 rounded-lg bg-[#ff595e] cursor-pointer" />
+                                    <div className="w-2 h-4 rounded-lg bg-[#b0b0b0] cursor-pointer" />
+                                </div>
+                                <Button variant="secondary" className="size-8 p-0 rounded-full flex items-center justify-center">
+                                    <ArrowUpRight className="h-4 w-4" />
+                                </Button>
+                            </div>
+                        </TableCell>
+                        <TableCell className="text-start">
+                            <Button size="icon" variant="outline">
+                                <EyeIcon className="h-4 w-4" />
+                                <span className="sr-only">Voir l'étudiant</span>
+                            </Button>
+                        </TableCell>
+                    </TableRow><TableRow>
+                        <TableCell>
+                            <div className="flex items-center gap-2">
+                                <Avatar className="h-8 w-8">
+                                    <AvatarImage alt="Avatar" src="/avatars/01.png" />
+                                    <AvatarFallback>MK</AvatarFallback>
+                                </Avatar>
+                                <div className="font-medium">Mohamed Karroumi</div>
+                            </div>
+                        </TableCell>
+                        <TableCell>Primaire</TableCell>
+                        <TableCell>
+                            <div className="flex items-center gap-4">
+                                <div className="flex items-center gap-2">
+                                    <div className="w-2 h-4 rounded-lg bg-[#59ff80] cursor-pointer" />
+                                    <div className="w-2 h-4 rounded-lg bg-[#59ff80] cursor-pointer" />
+                                    <div className="w-2 h-4 rounded-lg bg-[#59ff80] cursor-pointer" />
+                                    <div className="w-2 h-4 rounded-lg bg-[#ff595e] cursor-pointer" />
+                                    <div className="w-2 h-4 rounded-lg bg-[#b0b0b0] cursor-pointer" />
+                                </div>
+                                <Button variant="secondary" className="size-8 p-0 rounded-full flex items-center justify-center">
+                                    <ArrowUpRight className="h-4 w-4" />
+                                </Button>
+                            </div>
+                        </TableCell>
+                        <TableCell className="text-start">
+                            <Button size="icon" variant="outline">
+                                <EyeIcon className="h-4 w-4" />
+                                <span className="sr-only">Voir l'étudiant</span>
+                            </Button>
+                        </TableCell>
+                    </TableRow><TableRow>
+                        <TableCell>
+                            <div className="flex items-center gap-2">
+                                <Avatar className="h-8 w-8">
+                                    <AvatarImage alt="Avatar" src="/avatars/01.png" />
+                                    <AvatarFallback>MK</AvatarFallback>
+                                </Avatar>
+                                <div className="font-medium">Mohamed Karroumi</div>
+                            </div>
+                        </TableCell>
+                        <TableCell>Primaire</TableCell>
+                        <TableCell>
+                            <div className="flex items-center gap-4">
+                                <div className="flex items-center gap-2">
+                                    <div className="w-2 h-4 rounded-lg bg-[#59ff80] cursor-pointer" />
+                                    <div className="w-2 h-4 rounded-lg bg-[#59ff80] cursor-pointer" />
+                                    <div className="w-2 h-4 rounded-lg bg-[#59ff80] cursor-pointer" />
+                                    <div className="w-2 h-4 rounded-lg bg-[#ff595e] cursor-pointer" />
+                                    <div className="w-2 h-4 rounded-lg bg-[#b0b0b0] cursor-pointer" />
+                                </div>
+                                <Button variant="secondary" className="size-8 p-0 rounded-full flex items-center justify-center">
+                                    <ArrowUpRight className="h-4 w-4" />
+                                </Button>
+                            </div>
+                        </TableCell>
+                        <TableCell className="text-start">
+                            <Button size="icon" variant="outline">
+                                <EyeIcon className="h-4 w-4" />
+                                <span className="sr-only">Voir l'étudiant</span>
+                            </Button>
+                        </TableCell>
+                    </TableRow>
+
+                </TableBody>
+            </Table>
+        </CardContent>
+    </Card>
+)
 export default function Dashboard() {
     return (
         <div className="flex h-full overflow-x-scroll w-full flex-col">
             <header className="flex items-center justify-between px-4 pt-4 md:px-8 md:pt-8">
-                <h1 className="text-6xl metro-bold">Accueil</h1>
+                <h1 className="text-9xl thunder-semi-bold pt-5">Accueil</h1>
             </header>
             <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
                 <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
-                    <Card>
-                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-lg metro-light ">
-                                Paiements Total
-                            </CardTitle>
-                            <DollarSign className="h-4 w-4 text-muted-foreground" />
-                        </CardHeader>
-                        <CardContent>
-                            <div className="text-2xl metro-semi-bold">5,231.89 DH</div>
-                            <p className="text-xs text-muted-foreground">
-                                +20% par rapport au mois dernier
-                            </p>
-                        </CardContent>
-                    </Card>
-                    <Card>
-                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-lg metro-light">
-                                Ètudiants
-                            </CardTitle>
-                            <Users className="h-4 w-4 text-muted-foreground" />
-                        </CardHeader>
-                        <CardContent>
-                            <div className="text-2xl metro-semi-bold">236</div>
-                            <p className="text-xs text-muted-foreground">
-                                +180.1% par rapport au mois dernier
-                            </p>
-                        </CardContent>
-                    </Card>
-                    <Card>
-                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-lg metro-light">Cours</CardTitle>
-                            <BookCopy className="h-4 w-4 text-muted-foreground" />
-                        </CardHeader>
-                        <CardContent>
-                            <div className="text-2xl metro-semi-bold">12</div>
-                            <p className="text-xs text-muted-foreground">
-                                +19% par rapport au mois dernier
-                            </p>
-                        </CardContent>
-                    </Card>
-                    <Card className="bg-amber-100 ring ring-amber-300">
-                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-lg metro-light">Non payé</CardTitle>
-                            <Activity className="h-4 w-4 text-muted-foreground" />
-                        </CardHeader>
-                        <CardContent>
-                            <div className="text-2xl metro-semi-bold">38</div>
-                            <p className="text-xs text-muted-foreground">
-                                16% du total des étudiants
-                            </p>
-                        </CardContent>
-                    </Card>
+                    <BoxA />
+                    <BoxB />
+                    <BoxC />
+                    <BoxD />
                 </div>
                 <div className="grid gap-4 md:gap-8 lg:grid-cols-2 xl:grid-cols-3">
-                    <Card className="xl:col-span-2">
-                        <CardHeader className="flex flex-row items-center">
-                            <div className="grid gap-2">
-                                <CardTitle className=" metro-medium">Liste des étudiants</CardTitle>
-                                <CardDescription className="metro-medium">
-                                    Étudiants récemment inscrits
-                                </CardDescription>
-                            </div>
-                            <Button asChild size="sm" className="ml-auto gap-1">
-                                <div>
-                                    <p className="text-base">Voir tout</p>
-                                    <ArrowUpRight className="h-4 w-4" />
-                                </div>
-                            </Button>
-                        </CardHeader>
-                        <CardContent>
-                            <Table>
-                                <TableHeader>
-                                    <TableRow>
-                                        <TableHead>Customer</TableHead>
-                                        <TableHead className="hidden xl:table-column">
-                                            Type
-                                        </TableHead>
-                                        <TableHead className="hidden xl:table-column">
-                                            Status
-                                        </TableHead>
-                                        <TableHead className="hidden xl:table-column">
-                                            Date
-                                        </TableHead>
-                                        <TableHead className="text-right">Amount</TableHead>
-                                    </TableRow>
-                                </TableHeader>
-                                <TableBody>
-                                    <TableRow>
-                                        <TableCell>
-                                            <div className="font-medium">Liam Johnson</div>
-                                            <div className="hidden text-sm text-muted-foreground md:inline">
-                                                liam@example.com
-                                            </div>
-                                        </TableCell>
-                                        <TableCell className="hidden xl:table-column">
-                                            Sale
-                                        </TableCell>
-                                        <TableCell className="hidden xl:table-column">
-                                            <Badge className="text-xs" variant="outline">
-                                                Approved
-                                            </Badge>
-                                        </TableCell>
-                                        <TableCell className="hidden md:table-cell lg:hidden xl:table-column">
-                                            2023-06-23
-                                        </TableCell>
-                                        <TableCell className="text-right">$250.00</TableCell>
-                                    </TableRow>
-                                    <TableRow>
-                                        <TableCell>
-                                            <div className="font-medium">Olivia Smith</div>
-                                            <div className="hidden text-sm text-muted-foreground md:inline">
-                                                olivia@example.com
-                                            </div>
-                                        </TableCell>
-                                        <TableCell className="hidden xl:table-column">
-                                            Refund
-                                        </TableCell>
-                                        <TableCell className="hidden xl:table-column">
-                                            <Badge className="text-xs" variant="outline">
-                                                Declined
-                                            </Badge>
-                                        </TableCell>
-                                        <TableCell className="hidden md:table-cell lg:hidden xl:table-column">
-                                            2023-06-24
-                                        </TableCell>
-                                        <TableCell className="text-right">$150.00</TableCell>
-                                    </TableRow>
-                                    <TableRow>
-                                        <TableCell>
-                                            <div className="font-medium">Noah Williams</div>
-                                            <div className="hidden text-sm text-muted-foreground md:inline">
-                                                noah@example.com
-                                            </div>
-                                        </TableCell>
-                                        <TableCell className="hidden xl:table-column">
-                                            Subscription
-                                        </TableCell>
-                                        <TableCell className="hidden xl:table-column">
-                                            <Badge className="text-xs" variant="outline">
-                                                Approved
-                                            </Badge>
-                                        </TableCell>
-                                        <TableCell className="hidden md:table-cell lg:hidden xl:table-column">
-                                            2023-06-25
-                                        </TableCell>
-                                        <TableCell className="text-right">$350.00</TableCell>
-                                    </TableRow>
-                                    <TableRow>
-                                        <TableCell>
-                                            <div className="font-medium">Emma Brown</div>
-                                            <div className="hidden text-sm text-muted-foreground md:inline">
-                                                emma@example.com
-                                            </div>
-                                        </TableCell>
-                                        <TableCell className="hidden xl:table-column">
-                                            Sale
-                                        </TableCell>
-                                        <TableCell className="hidden xl:table-column">
-                                            <Badge className="text-xs" variant="outline">
-                                                Approved
-                                            </Badge>
-                                        </TableCell>
-                                        <TableCell className="hidden md:table-cell lg:hidden xl:table-column">
-                                            2023-06-26
-                                        </TableCell>
-                                        <TableCell className="text-right">$450.00</TableCell>
-                                    </TableRow>
-                                    <TableRow>
-                                        <TableCell>
-                                            <div className="font-medium">Liam Johnson</div>
-                                            <div className="hidden text-sm text-muted-foreground md:inline">
-                                                liam@example.com
-                                            </div>
-                                        </TableCell>
-                                        <TableCell className="hidden xl:table-column">
-                                            Sale
-                                        </TableCell>
-                                        <TableCell className="hidden xl:table-column">
-                                            <Badge className="text-xs" variant="outline">
-                                                Approved
-                                            </Badge>
-                                        </TableCell>
-                                        <TableCell className="hidden md:table-cell lg:hidden xl:table-column">
-                                            2023-06-27
-                                        </TableCell>
-                                        <TableCell className="text-right">$550.00</TableCell>
-                                    </TableRow>
-                                </TableBody>
-                            </Table>
-                        </CardContent>
-                    </Card>
+                    <BoxTable />
                     <Card>
                         <CardHeader>
                             <CardTitle>Recent Sales</CardTitle>

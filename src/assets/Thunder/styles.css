@@ -1,0 +1,213 @@
+/* Thunder-BlackLCItalic.woff2      Thunder-ExtraLightLCItalic.woff2  Thunder-MediumLCItalic.woff2
+Thunder-BlackLC.woff2            Thunder-ExtraLightLC.woff2        Thunder-MediumLC.woff2
+Thunder-BoldLCItalic.woff2       Thunder-LCItalic.woff2            Thunder-SemiBoldLCItalic.woff2
+Thunder-BoldLC.woff2             Thunder-LC.woff2                  Thunder-SemiBoldLC.woff2
+Thunder-ExtraBoldLCItalic.woff2  Thunder-LightLCItalic.woff2       Thunder-ThinLCItalic.woff2
+Thunder-ExtraBoldLC.woff2        Thunder-LightLC.woff2             Thunder-ThinLC.woff2 */
+
+
+/* @font-face {
+    font-family: 'Metropolis Thin';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Metropolis Thin'), url('Metropolis-Thin.woff') format('woff');
+} */
+
+@font-face {
+    font-family: 'Thunder Thin';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Thunder Thin'), url('Thunder-ThinLC.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Thunder Thin Italic';
+    font-style: italic;
+    font-weight: normal;
+    src: local('Thunder Thin Italic'), url('Thunder-ThinLCItalic.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Thunder Extra Light';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Thunder Extra Light'), url('Thunder-ExtraLightLC.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Thunder Extra Light Italic';
+    font-style: italic;
+    font-weight: normal;
+    src: local('Thunder Extra Light Italic'), url('Thunder-ExtraLightLCItalic.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Thunder Light';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Thunder Light'), url('Thunder-LightLC.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Thunder Light Italic';
+    font-style: italic;
+    font-weight: normal;
+    src: local('Thunder Light Italic'), url('Thunder-LightLCItalic.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Thunder Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Thunder Regular'), url('Thunder-LC.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Thunder Italic';
+    font-style: italic;
+    font-weight: normal;
+    src: local('Thunder Italic'), url('Thunder-LCItalic.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Thunder Medium';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Thunder Medium'), url('Thunder-MediumLC.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Thunder Medium Italic';
+    font-style: italic;
+    font-weight: normal;
+    src: local('Thunder Medium Italic'), url('Thunder-MediumLCItalic.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Thunder Semi Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Thunder Semi Bold'), url('Thunder-SemiBoldLC.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Thunder Semi Bold Italic';
+    font-style: italic;
+    font-weight: normal;
+    src: local('Thunder Semi Bold Italic'), url('Thunder-SemiBoldLCItalic.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Thunder Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Thunder Bold'), url('Thunder-BoldLC.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Thunder Bold Italic';
+    font-style: italic;
+    font-weight: normal;
+    src: local('Thunder Bold Italic'), url('Thunder-BoldLCItalic.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Thunder Extra Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Thunder Extra Bold'), url('Thunder-ExtraBoldLC.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Thunder Extra Bold Italic';
+    font-style: italic;
+    font-weight: normal;
+    src: local('Thunder Extra Bold Italic'), url('Thunder-ExtraBoldLCItalic.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Thunder Black';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Thunder Black'), url('Thunder-BlackLC.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Thunder Black Italic';
+    font-style: italic;
+    font-weight: normal;
+    src: local('Thunder Black Italic'), url('Thunder-BlackLCItalic.woff2') format('woff2');
+}
+
+.thunder-thin {
+    font-family: 'Thunder Thin';
+}
+
+.thunder-thin-italic {
+    font-family: 'Thunder Thin Italic';
+}
+
+.thunder-extra-light {
+    font-family: 'Thunder Extra Light';
+}
+
+.thunder-extra-light-italic {
+    font-family: 'Thunder Extra Light Italic';
+}
+
+.thunder-light {
+    font-family: 'Thunder Light';
+}
+
+.thunder-light-italic {
+    font-family: 'Thunder Light Italic';
+}
+
+.thunder-regular {
+    font-family: 'Thunder Regular';
+}
+
+.thunder-italic {
+    font-family: 'Thunder Italic';
+}
+
+.thunder-medium {
+    font-family: 'Thunder Medium';
+}
+
+.thunder-medium-italic {
+    font-family: 'Thunder Medium Italic';
+}
+
+.thunder-semi-bold {
+    font-family: 'Thunder Semi Bold';
+}
+
+.thunder-semi-bold-italic {
+    font-family: 'Thunder Semi Bold Italic';
+}
+
+.thunder-bold {
+    font-family: 'Thunder Bold';
+}
+
+.thunder-bold-italic {
+    font-family: 'Thunder Bold Italic';
+}
+
+.thunder-extra-bold {
+    font-family: 'Thunder Extra Bold';
+}
+
+.thunder-extra-bold-italic {
+    font-family: 'Thunder Extra Bold Italic';
+}
+
+.thunder-black {
+    font-family: 'Thunder Black';
+}
+
+.thunder-black-italic {
+    font-family: 'Thunder Black Italic';
+}
+
