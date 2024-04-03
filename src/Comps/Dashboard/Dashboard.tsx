@@ -367,6 +367,17 @@ const BoxNonPaye = () => (
     </Card>
 )
 
+const BoxE = () => (
+    <Card className="col-span-2">
+        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-lg font-light">
+                Statistiques des non-payeurs
+            </CardTitle>
+            <DollarSign className="h-4 w-4 text-muted-foreground" />
+        </CardHeader>
+    </Card>
+)
+
 export default function Dashboard() {
     return (
         <div className="flex h-full overflow-x-scroll w-full flex-col">
@@ -379,6 +390,7 @@ export default function Dashboard() {
                     <BoxB />
                     <BoxC />
                     <BoxD />
+                    <BoxE />
                 </div>
             </header>
             <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
