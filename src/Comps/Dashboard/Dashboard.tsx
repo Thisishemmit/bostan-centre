@@ -93,10 +93,10 @@ const BoxD = () => (
 )
 
 const BoxTable = () => (
-    <Card className="xl:col-span-2">
+    <Card className="2xl:col-span-2">
         <CardHeader className="flex flex-row items-center">
             <div className="grid gap-2">
-                <CardTitle className=" font-medium">Liste des étudiants</CardTitle>
+                <CardTitle className="text-4xl">Liste des étudiants</CardTitle>
                 <CardDescription className="font-medium">
                     Étudiants récemment inscrits
                 </CardDescription>
@@ -281,103 +281,110 @@ const BoxTable = () => (
         </CardContent>
     </Card>
 )
+
+const BoxNonPaye = () => (
+    <Card>
+        <CardHeader>
+            <CardTitle>Recent Sales</CardTitle>
+        </CardHeader>
+        <CardContent className="grid gap-8">
+            <div className="flex items-center gap-4">
+                <Avatar className="hidden h-9 w-9 sm:flex">
+                    <AvatarImage src="/avatars/01.png" alt="Avatar" />
+                    <AvatarFallback>OM</AvatarFallback>
+                </Avatar>
+                <div className="grid gap-1">
+                    <p className="text-sm font-medium leading-none">
+                        Olivia Martin
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                        olivia.martin@email.com
+                    </p>
+                </div>
+                <div className="ml-auto font-medium">+$1,999.00</div>
+            </div>
+            <div className="flex items-center gap-4">
+                <Avatar className="hidden h-9 w-9 sm:flex">
+                    <AvatarImage src="/avatars/02.png" alt="Avatar" />
+                    <AvatarFallback>JL</AvatarFallback>
+                </Avatar>
+                <div className="grid gap-1">
+                    <p className="text-sm font-medium leading-none">
+                        Jackson Lee
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                        jackson.lee@email.com
+                    </p>
+                </div>
+                <div className="ml-auto font-medium">+$39.00</div>
+            </div>
+            <div className="flex items-center gap-4">
+                <Avatar className="hidden h-9 w-9 sm:flex">
+                    <AvatarImage src="/avatars/03.png" alt="Avatar" />
+                    <AvatarFallback>IN</AvatarFallback>
+                </Avatar>
+                <div className="grid gap-1">
+                    <p className="text-sm font-medium leading-none">
+                        Isabella Nguyen
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                        isabella.nguyen@email.com
+                    </p>
+                </div>
+                <div className="ml-auto font-medium">+$299.00</div>
+            </div>
+            <div className="flex items-center gap-4">
+                <Avatar className="hidden h-9 w-9 sm:flex">
+                    <AvatarImage src="/avatars/04.png" alt="Avatar" />
+                    <AvatarFallback>WK</AvatarFallback>
+                </Avatar>
+                <div className="grid gap-1">
+                    <p className="text-sm font-medium leading-none">
+                        William Kim
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                        will@email.com
+                    </p>
+                </div>
+                <div className="ml-auto font-medium">+$99.00</div>
+            </div>
+            <div className="flex items-center gap-4">
+                <Avatar className="hidden h-9 w-9 sm:flex">
+                    <AvatarImage src="/avatars/05.png" alt="Avatar" />
+                    <AvatarFallback>SD</AvatarFallback>
+                </Avatar>
+                <div className="grid gap-1">
+                    <p className="text-sm font-medium leading-none">
+                        Sofia Davis
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                        sofia.davis@email.com
+                    </p>
+                </div>
+                <div className="ml-auto font-medium">+$39.00</div>
+            </div>
+        </CardContent>
+    </Card>
+)
+
 export default function Dashboard() {
     return (
         <div className="flex h-full overflow-x-scroll w-full flex-col">
-            <header className="flex items-center justify-between px-4 pt-4 md:px-8 md:pt-8">
-                <h1 className="text-9xl thunder-semi-bold pt-5">Accueil</h1>
-            </header>
-            <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
-                <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
+            <header className="flex items-center justify-between gap-5 px-4 pt-4 md:px-8 md:pt-8 w-full">
+                <div>
+                    <h1 className="text-9xl thunder-semi-bold pt-5 pl-6">Accueil</h1>
+                </div>
+                <div className="grid gap-4 md:gap-8 xl:grid-cols-3 lg:grid-cols-2">
                     <BoxA />
                     <BoxB />
                     <BoxC />
                     <BoxD />
                 </div>
-                <div className="grid gap-4 md:gap-8 lg:grid-cols-2 xl:grid-cols-3">
+            </header>
+            <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
+                <div className="grid gap-4 md:gap-8 xl:grid-cols-1 2xl:grid-cols-3">
+                    <BoxNonPaye />
                     <BoxTable />
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Recent Sales</CardTitle>
-                        </CardHeader>
-                        <CardContent className="grid gap-8">
-                            <div className="flex items-center gap-4">
-                                <Avatar className="hidden h-9 w-9 sm:flex">
-                                    <AvatarImage src="/avatars/01.png" alt="Avatar" />
-                                    <AvatarFallback>OM</AvatarFallback>
-                                </Avatar>
-                                <div className="grid gap-1">
-                                    <p className="text-sm font-medium leading-none">
-                                        Olivia Martin
-                                    </p>
-                                    <p className="text-sm text-muted-foreground">
-                                        olivia.martin@email.com
-                                    </p>
-                                </div>
-                                <div className="ml-auto font-medium">+$1,999.00</div>
-                            </div>
-                            <div className="flex items-center gap-4">
-                                <Avatar className="hidden h-9 w-9 sm:flex">
-                                    <AvatarImage src="/avatars/02.png" alt="Avatar" />
-                                    <AvatarFallback>JL</AvatarFallback>
-                                </Avatar>
-                                <div className="grid gap-1">
-                                    <p className="text-sm font-medium leading-none">
-                                        Jackson Lee
-                                    </p>
-                                    <p className="text-sm text-muted-foreground">
-                                        jackson.lee@email.com
-                                    </p>
-                                </div>
-                                <div className="ml-auto font-medium">+$39.00</div>
-                            </div>
-                            <div className="flex items-center gap-4">
-                                <Avatar className="hidden h-9 w-9 sm:flex">
-                                    <AvatarImage src="/avatars/03.png" alt="Avatar" />
-                                    <AvatarFallback>IN</AvatarFallback>
-                                </Avatar>
-                                <div className="grid gap-1">
-                                    <p className="text-sm font-medium leading-none">
-                                        Isabella Nguyen
-                                    </p>
-                                    <p className="text-sm text-muted-foreground">
-                                        isabella.nguyen@email.com
-                                    </p>
-                                </div>
-                                <div className="ml-auto font-medium">+$299.00</div>
-                            </div>
-                            <div className="flex items-center gap-4">
-                                <Avatar className="hidden h-9 w-9 sm:flex">
-                                    <AvatarImage src="/avatars/04.png" alt="Avatar" />
-                                    <AvatarFallback>WK</AvatarFallback>
-                                </Avatar>
-                                <div className="grid gap-1">
-                                    <p className="text-sm font-medium leading-none">
-                                        William Kim
-                                    </p>
-                                    <p className="text-sm text-muted-foreground">
-                                        will@email.com
-                                    </p>
-                                </div>
-                                <div className="ml-auto font-medium">+$99.00</div>
-                            </div>
-                            <div className="flex items-center gap-4">
-                                <Avatar className="hidden h-9 w-9 sm:flex">
-                                    <AvatarImage src="/avatars/05.png" alt="Avatar" />
-                                    <AvatarFallback>SD</AvatarFallback>
-                                </Avatar>
-                                <div className="grid gap-1">
-                                    <p className="text-sm font-medium leading-none">
-                                        Sofia Davis
-                                    </p>
-                                    <p className="text-sm text-muted-foreground">
-                                        sofia.davis@email.com
-                                    </p>
-                                </div>
-                                <div className="ml-auto font-medium">+$39.00</div>
-                            </div>
-                        </CardContent>
-                    </Card>
                 </div>
             </main>
         </div>
